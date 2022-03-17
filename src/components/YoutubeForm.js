@@ -34,7 +34,7 @@ const validate = values => {
 export const YoutubeForm = () => {
   const formik = useFormik({ initialValues, onSubmit, validate });
 
-  console.log('Form errors:', formik.errors)
+  console.log('Visited fields', formik.touched);
 
   return (
     <div>
@@ -47,9 +47,11 @@ export const YoutubeForm = () => {
             name="name"
             autoComplete="off"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.name}
             />
-          {formik.errors.name && <div className='error'>formik.errors.name</div>}
+          { formik.touched.name && formik.errors.name && 
+            <div className='error'>{formik.errors.name}</div> }
         </div>
 
         <div className='form-control'>
@@ -60,9 +62,11 @@ export const YoutubeForm = () => {
             name="email"
             autoComplete="off"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
             />
-          {formik.errors.email && <div className='error'>formik.errors.email</div>}
+          { formik.touched.email && formik.errors.email && 
+            <div className='error'>{formik.errors.email}</div> }
         </div>
 
         <div className='form-control'>
@@ -73,9 +77,11 @@ export const YoutubeForm = () => {
             autoComplete="off"
             channel="channel"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.channel}
           />
-          {formik.errors.channel && <div className='error'>formik.errors.channel</div>}
+          { formik.touched.channel && formik.errors.channel && 
+            <div className='error'>{formik.errors.channel}</div> }
         </div>
 
         <button type='submit'>Submit</button>
