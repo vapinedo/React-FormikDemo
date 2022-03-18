@@ -8,7 +8,11 @@ const initialValues = {
   email: '',
   channel: '',
   commnents: '',
-  address: ''
+  address: '',
+  social: {
+    facebook: '',
+    twitter: ''
+  }
 };
 
 const onSubmit = values => {
@@ -58,17 +62,24 @@ export const YoutubeForm = () => {
         <div className='form-control'>
           <label htmlFor='address'>Address</label>
           <Field as='textarea' name='address'>
-            {
-              (props) => {
-                const { field, form, meta } = props;
-                console.log('Render props', props)
-                return <div>
-                  <input type='text' id='address' {...field} />
-                  {meta.touched && meta.error && <div>{meta.error}</div>}
-                </div>
-              }
-            }
+            {(props) => {
+              const { field, form, meta } = props;
+              return <div>
+                <input type='text' id='address' {...field} />
+                {meta.touched && meta.error && <div>{meta.error}</div>}
+              </div>
+            }}
           </Field>
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='facebook'>Facebook profile</label>
+          <Field type='text' id='facebook' name='social.facebook' />
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='twitter'>Twitter profile</label>
+          <Field type='text' id='twitter' name='social.twitter' />
         </div>
 
         <button type='submit'>Submit</button>
