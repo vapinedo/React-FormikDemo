@@ -12,6 +12,26 @@ const onSubmit = values => {
   console.log('Form data:', values)
 };
 
+const validate = values => {
+  let errors = {};
+
+  if (!values.name) {
+    errors.name = 'Required'
+  }
+
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/i.test(values.email)) {
+    errors.email = 'Invalid email format'
+  }
+
+  if (!values.channel) {
+    errors.channel = 'Required'
+  }
+
+  return errors;
+}; 
+
 const validationSchema = Yup.object({
   name: Yup.string().required('Required'),
   email: Yup.string()
@@ -20,7 +40,7 @@ const validationSchema = Yup.object({
   channel: Yup.string().required('Required')
 });
 
-export const YoutubeForm = () => {
+export const OldYoutubeForm = () => {
   const formik = useFormik({ 
     initialValues, 
     onSubmit, 
@@ -40,8 +60,10 @@ export const YoutubeForm = () => {
             id="name"
             name="name"
             autoComplete="off"
-            {...formik.getFieldProps('name')}
-          />
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.name}
+            />
           { formik.touched.name && formik.errors.name && 
             <div className='error'>{formik.errors.name}</div> }
         </div>
@@ -53,8 +75,10 @@ export const YoutubeForm = () => {
             id="email"
             name="email"
             autoComplete="off"
-            {...formik.getFieldProps('email')}
-          />
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            />
           { formik.touched.email && formik.errors.email && 
             <div className='error'>{formik.errors.email}</div> }
         </div>
@@ -66,7 +90,9 @@ export const YoutubeForm = () => {
             id="channel"
             autoComplete="off"
             channel="channel"
-            {...formik.getFieldProps('channel')}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.channel}
           />
           { formik.touched.channel && formik.errors.channel && 
             <div className='error'>{formik.errors.channel}</div> }
