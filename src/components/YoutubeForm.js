@@ -3,9 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 
 const initialValues = {
-  name: "",
-  email: "",
-  channel: "",
+  name: '',
+  email: '',
+  channel: '',
+  commnents: '',
+  address: ''
 };
 
 const onSubmit = values => {
@@ -43,6 +45,27 @@ export const YoutubeForm = () => {
           <label htmlFor="channel">Channel</label>
           <Field type="text" id="channel" name="channel" autoComplete="off" />
           <ErrorMessage name='channel' />
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='comments'>Comments</label>
+          <Field as='textarea' id='comments' name='comments' />
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='address'>Address</label>
+          <Field as='textarea' name='address'>
+            {
+              (props) => {
+                const { field, form, meta } = props;
+                console.log('Render props', props)
+                return <div>
+                  <input type='text' id='address' {...field} />
+                  {meta.touched && meta.error && <div>{meta.error}</div>}
+                </div>
+              }
+            }
+          </Field>
         </div>
 
         <button type='submit'>Submit</button>
