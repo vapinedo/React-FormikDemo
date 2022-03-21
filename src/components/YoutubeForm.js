@@ -35,7 +35,10 @@ export const YoutubeForm = () => {
     <Formik 
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmit}>
+      onSubmit={onSubmit}
+      validateOnChange={false}
+      validateOnBlur={false}
+    >
       <Form>
         <div className='form-control'>
           <label htmlFor="name">Name</label>
@@ -102,6 +105,7 @@ export const YoutubeForm = () => {
               const {push, remove, form} = fieldArrayProps;
               const {values} = form;
               const {phNumbers} = values;
+              console.log('Form errors', form.errors)
 
               return <div>
                 {phNumbers.map((phNumber, index) => (
