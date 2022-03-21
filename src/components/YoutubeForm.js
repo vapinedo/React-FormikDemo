@@ -17,6 +17,20 @@ const initialValues = {
   phNumbers: ['']
 };
 
+const savedValues = {
+  name: 'Valp',
+  email: 'valp@gmail.com',
+  channel: 'Valp Gaming',
+  comments: 'First Comment',
+  address: '242 Baker Street',
+  social: {
+    facebook: '',
+    twitter: ''
+  },
+  phoneNumbers: ['', ''],
+  phNumbers: ['']
+};
+
 const onSubmit = (values, onSubmitProps) => {
   console.log('Form data', values)
   console.log('onSubmitProps', onSubmitProps)
@@ -40,12 +54,15 @@ const validateComments = value => {
 };
 
 export const YoutubeForm = () => {
+
+  const [formValues, setFormValues] = React.useState(null);
   
   return (
     <Formik 
-      initialValues={initialValues}
+      initialValues={formValues || initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
+      enableReinitialize
       // validateOnMount
 
     >
@@ -137,7 +154,7 @@ export const YoutubeForm = () => {
               </FieldArray>
             </div>
     
-            <button type='button' onClick={() => formik.setFieldTouched('comments')}>Visited comments</button>
+            {/* <button type='button' onClick={() => formik.setFieldTouched('comments')}>Visited comments</button>
             <button type='button' onClick={() => formik.setTouched({
               name: true,
               email: true,
@@ -146,8 +163,9 @@ export const YoutubeForm = () => {
             })}>Visited fields</button>
 
             <button type='button' onClick={() => formik.validateField('comments')}>Validate comments</button>
-            <button type='button' onClick={() => formik.validateForm()}>Validate all</button>
+            <button type='button' onClick={() => formik.validateForm()}>Validate all</button> */}
 
+            <button type='submit' onClick={() => setFormValues(savedValues)}>Load save data</button>
             <button type='submit' disabled={!formik.isValid || formik.isSubmitting}>Submit</button>
           </Form>          
         )
