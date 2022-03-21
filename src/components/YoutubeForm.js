@@ -4,10 +4,10 @@ import * as Yup from 'yup';
 import { TextError } from "./TextError";
 
 const initialValues = {
-  name: '',
-  email: '',
-  channel: '',
-  commnents: '',
+  name: 'Valp',
+  email: 'valp@gmail.com',
+  channel: 'Valp',
+  comments: 'first comment',
   address: '',
   social: {
     facebook: '',
@@ -44,6 +44,8 @@ export const YoutubeForm = () => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
+      // validateOnMount
+
     >
 
       {formik => {
@@ -144,7 +146,7 @@ export const YoutubeForm = () => {
             <button type='button' onClick={() => formik.validateField('comments')}>Validate comments</button>
             <button type='button' onClick={() => formik.validateForm()}>Validate all</button>
 
-            <button type='submit'>Submit</button>
+            <button type='submit' disabled={!formik.isValid}>Submit</button>
           </Form>          
         )
       }}
