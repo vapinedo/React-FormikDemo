@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from 'yup';
 import { TextError } from "./TextError";
 
@@ -13,7 +13,8 @@ const initialValues = {
     facebook: '',
     twitter: ''
   },
-  phoneNumbers: ['', '']
+  phoneNumbers: ['', ''],
+  phNumbers: ['']
 };
 
 const onSubmit = values => {
@@ -29,6 +30,7 @@ const validationSchema = Yup.object({
 });
 
 export const YoutubeForm = () => {
+  
   return (
     <Formik 
       initialValues={initialValues}
@@ -91,6 +93,30 @@ export const YoutubeForm = () => {
         <div className='form-control'>
           <label htmlFor='secondaryPh'>Secondary phone number</label>
           <Field type='text' id='secondaryPh' name='phoneNumbers[1]' />
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='phNumbers'>List of phone numbers</label>
+          <FieldArray name='phNumbers'>
+            {fieldArrayProps => {
+              const {push, remove, form} = fieldArrayProps;
+              const {values} = form;
+              const {phNumbers} = values;
+
+              return <div>
+                {phNumbers.map((phNumber, index) => (
+                  <div key={index}>
+                    <Field name={`phNumbers[${index}]`} />
+                    {
+                      index > 0 &&
+                      <button type='button' onClick={() => remove(index)}>-</button>
+                    }
+                    <button type='button' onClick={() => push('')}>+</button>
+                  </div>
+                ))}
+              </div>
+            }}
+          </FieldArray>
         </div>
 
         <button type='submit'>Submit</button>
