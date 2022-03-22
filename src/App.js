@@ -1,13 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import { YoutubeForm } from './components/YoutubeForm';
+import { FormikContainter } from './components/FormikContainter';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
-      <YoutubeForm />
+      <FormikContainter />
     </div>
   );
 }
-
-export default App;
