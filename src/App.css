@@ -12,7 +12,8 @@ label {
 
 input[type="text"],
 input[type="email"],
-textarea {
+textarea,
+select {
   display: block;
   width: 400px;
   padding: 6px 12px;
@@ -27,6 +28,10 @@ textarea {
 
 .form-control {
   margin-bottom: 20px;
+}
+
+.form-control select {
+  width: 100%;
 }
 
 .error {
