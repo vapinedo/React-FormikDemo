@@ -2,7 +2,7 @@
 
 ## Link to Playlist on Youtube
 
-[Duck Duck Go](https://www.youtube.com/watch?v=Yw27J-AFlk0&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=2 "The best search engine for privacy").
+[Click here](https://www.youtube.com/watch?v=Yw27J-AFlk0&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=2)
 
 ## features
 
