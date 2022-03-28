@@ -2,7 +2,7 @@
 
 ## Link to Playlist on Youtube
 
-[Click here](https://www.youtube.com/watch?v=Yw27J-AFlk0&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=2)
+[Click here](https://www.youtube.com/watch?v=Yw27J-AFlk0&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=1)
 
 ## features
 
