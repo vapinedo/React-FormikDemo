@@ -6,7 +6,7 @@ import { DatePicker } from './DatePicker';
 import { RadioButton } from './RadioButton';
 import { CheckboxGroup } from './CheckboxGroup';
 
-export const FormikControl = (props) => {
+const FormikControl = (props) => {
     const { control, ...rest } = props;
 
     switch(control) {
@@ -19,3 +19,5 @@ export const FormikControl = (props) => {
         default:            return null;
     }
 }
+
+export default FormikControl

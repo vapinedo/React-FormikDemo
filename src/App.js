@@ -1,10 +1,13 @@
 import './App.css';
-import { FormikContainter } from './components/FormikContainter';
+// import { FormikContainter } from './components/FormikContainter';
+import LoginForm from './components/LoginForm';
 
-export const App = () => {
+const App = () => {
   return (
     <div className="App">
-      <FormikContainter />
+      <LoginForm />
     </div>
   );
 }
+
+export default App
