@@ -24,35 +24,33 @@ const LoginForm = () => {
     }
 
     return (
-        <div>
-            <Formik 
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
-                {formik => (
-                    <Form>
-                        <FormikControl
-                            control='input'
-                            type='email'
-                            label='Email'
-                            name='email'
-                        />
+        <Formik 
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+        >
+            {formik => (
+                <Form>
+                    <FormikControl
+                        control='input'
+                        type='email'
+                        label='Email'
+                        name='email'
+                    />
 
-                        <FormikControl 
-                            control='input'
-                            type='password'
-                            label='Password'
-                            name='password'
-                        />
+                    <FormikControl 
+                        control='input'
+                        type='password'
+                        label='Password'
+                        name='password'
+                    />
 
-                        <button type='submit' disabled={!formik.isValid}>
-                            Login
-                        </button>
-                    </Form>
-                )}
-            </Formik>
-        </div>
+                    <button type='submit' disabled={!formik.isValid}>
+                        Login
+                    </button>
+                </Form>
+            )}
+        </Formik>
     )
 }
 
