@@ -1,8 +1,8 @@
 # React Formik Demo
 
-Project to build forms using React Formik library taking a youtube course from this link:
+## Link to Playlist on Youtube
 
-- https://www.youtube.com/watch?v=Yw27J-AFlk0&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=2
+[Duck Duck Go](https://www.youtube.com/watch?v=Yw27J-AFlk0&list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu&index=2 "The best search engine for privacy").
 
 ## features
 
